@@ -1,0 +1,18 @@
+# jellyfin.yml
+services:
+  jellyfin:
+    image: docker.io/jellyfin/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - suaPasta/config/jellyfin:/config
+      - suaPasta/media:/data/media
+    ports:
+      - 8096:8096
+      - 8920:8920/udp
+      - 7359:7359/udp
+      - 1900:1900/udp
+    restart: unless-stopped

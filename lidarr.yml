@@ -1,0 +1,16 @@
+# lidarr.yml
+services:
+  lidarr:
+    image: docker.io/linuxserver/lidarr
+    container_name: lidarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - suaPasta/config/lidarr:/config
+      - suaPasta/media:/media
+      - suaPasta/downloads:/downloads
+    ports:
+      - 8686:8686
+    restart: unless-stopped

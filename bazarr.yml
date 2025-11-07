@@ -1,0 +1,23 @@
+#bazarr.yml
+services:
+  bazarr:
+    image: lscr.io/linuxserver/bazarr
+    container_name: bazarr
+    environment:
+# ID do Usuário (mantenha o mesmo que usa no Radarr)
+      - PUID=1000
+# ID do Grupo (mantenha o mesmo que usa no Radarr)
+      - PGID=1000
+# Fuso horário (igual ao do seu Radarr)
+      - TZ=America/Sao_Paulo
+    volumes:
+# Onde o Bazarr guarda as configurações
+      - suaPasta/config/bazarr:/config
+# Onde estão as suas mídias (Filmes/Séries). ESSENCIAL para o Bazarr funcionar.
+      - suaPasta/media:/media:z
+# Note: Não é necessário mapear o /downloads para o Bazarr
+    ports:
+# Porta padrão do Bazarr (6767)
+      - 6767:6767
+    restart: unless-stopped
+

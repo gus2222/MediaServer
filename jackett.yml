@@ -1,0 +1,13 @@
+services:
+  jackett:
+      image: lscr.io/linuxserver/jackett:latest
+      container_name: jackett
+      environment:
+        - PUID=1000 # Seu ID de usuário
+        - PGID=1000 # Seu ID de grupo
+        - TZ=America/Sao_Paulo
+      volumes:
+        - suaPasta/config/jackett/:/config
+      ports:
+        - 9117:9117 # Porta padrao do Jackett
+      restart: unless-stopped

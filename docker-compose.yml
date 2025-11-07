@@ -1,0 +1,11 @@
+include:
+  - bazarr.yml
+#  - jackett.yml
+  - jellyfin.yml
+  - radarr.yml
+  - prowlarr.yml
+#  - flaresolverr.yml
+  - qbittorrent.yml
+  - sonarr.yml
+  - lidarr.yml
+
